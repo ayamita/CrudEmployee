@@ -20,19 +20,17 @@ class EmployeeTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function a_post_can_be_create()
+    public function test_postemployee()
     {
-        $response = $this->post('/posts',[
+
+        
+        $response = $this->post('employee',[
             'name' => 'Pablo',
             'email' => 'pablo@gmail.com',
             'admission_date' => '2000-02-24'
         ]);
 
         $response->assertOk();
-        $this->assertCount(1, Post::all());
-
-        $post = Post::first();
-
-        $this->assertEquals($post->name, 'Pablo');
+        
     }
 }

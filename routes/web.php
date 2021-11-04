@@ -7,7 +7,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/insert', 'EmployeController@store');
-
-Route::resource('employee',EmployeController::class);
+Route::resource('/employee',EmployeController::class);
 

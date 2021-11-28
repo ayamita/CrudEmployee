@@ -56,9 +56,9 @@ class employeeTest extends TestCase
     /** @test */
     public function an_employe_can_be_deleted ()
     {
-        $id = 2;
+        $id = 4;
         $response = $this->delete('/employee/'.$id);
-        $this->assertCount(1,employe::all());
+        $this->assertCount(2,employe::all());
         $response->assertRedirect('/employee');
     }
 

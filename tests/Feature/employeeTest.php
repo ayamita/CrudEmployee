@@ -29,13 +29,13 @@ class employeeTest extends TestCase
         $response = $this->post('/employee',[
             'name' =>'Alberto Munoz',
             'email' => 'Munozalb@gmail.com',
-            'admission_date' => '10-03-2020',
+            'admission_date' => '2020-10-03',
         ]);
         $this->assertCount(1,employe::all());
         $employe = employe::latest('id')->first();
         $this->assertEquals($employe->name, 'Alberto Munoz');
         $this->assertEquals($employe->email, 'Munozalb@gmail.com');
-        $this->assertEquals($employe->admission_date, '10-03-2020');
+        $this->assertEquals($employe->admission_date, '2020-10-03');
     }
     /** @test */
     public function an_employe_can_be_updated ()

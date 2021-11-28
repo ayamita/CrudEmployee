@@ -44,13 +44,13 @@ class employeeTest extends TestCase
         $response = $this->patch('/employee/'. $employe->id,[
             'name' =>'Enrique Bermudez',
             'email' => 'ElPerroBermudez@gmail.com',
-            'admission_date' => '10-03-2021',
+            'admission_date' => '2020-10-03',
         ]);
         $this->assertCount(1,employe::all());
         $employe = $employe->fresh();
         $this->assertEquals($employe->name, 'Enrique Bermudez');
         $this->assertEquals($employe->email, 'ElPerroBermudez@gmail.com');
-        $this->assertEquals($employe->admission_date, '10-03-2021');
+        $this->assertEquals($employe->admission_date, '2020-10-03');
         $response->assertRedirect('/employee');
     }
     /** @test */

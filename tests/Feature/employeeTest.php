@@ -31,7 +31,7 @@ class employeeTest extends TestCase
             'email' => 'Munozalb@gmail.com',
             'admission_date' => '10-03-2020',
         ]);
-        $this->assertCount(2,employe::all());
+        $this->assertCount(1,employe::all());
         $employe = employe::latest('id')->first();
         $this->assertEquals($employe->name, 'Alberto Munoz');
         $this->assertEquals($employe->email, 'Munozalb@gmail.com');
@@ -40,13 +40,13 @@ class employeeTest extends TestCase
     /** @test */
     public function an_employe_can_be_updated ()
     {
-        $employe = employe::where('id',1)->first();
+        $employe = employe::latest('id')->first();
         $response = $this->patch('/employee/'. $employe->id,[
             'name' =>'Enrique Bermudez',
             'email' => 'ElPerroBermudez@gmail.com',
             'admission_date' => '10-03-2021',
         ]);
-        $this->assertCount(2,employe::all());
+        $this->assertCount(1,employe::all());
         $employe = $employe->fresh();
         $this->assertEquals($employe->name, 'Enrique Bermudez');
         $this->assertEquals($employe->email, 'ElPerroBermudez@gmail.com');
@@ -56,9 +56,9 @@ class employeeTest extends TestCase
     /** @test */
     public function an_employe_can_be_deleted ()
     {
-        $id = 4;
-        $response = $this->delete('/employee/'.$id);
-        $this->assertCount(2,employe::all());
+        $user = employe::latest('id')->first();
+        $response = $this->delete('/employee/'.$user['id']);
+        $this->assertCount(0,employe::all());
         $response->assertRedirect('/employee');
     }
 

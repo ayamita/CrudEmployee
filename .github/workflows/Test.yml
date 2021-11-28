@@ -30,6 +30,10 @@ jobs:
         touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: pgsql
+        DB_DATABASE: d4ub9ho32sjc4r
+        DB_HOST: ec2-107-23-135-132.compute-1.amazonaws.com
+        DB_PORT: 5432
+        DB_USERNAME: mjoaagosksmoiw
+        DB_PASSWORD: 2702c8f5e4501c78244911436adfd29d95a13b23e678e696f08e62ab57dbd7ee
       run: vendor/bin/phpunit

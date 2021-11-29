@@ -61,15 +61,43 @@ class employeeTest extends TestCase
         $this->assertCount(0,employe::all());
         $response->assertRedirect('/employee');
     }
+    /**
+    * @runTestsInSeparateProcesses
+    */
     /** @test */
-    public function testSave()
-    {
-        $this->setOutputCallback(function () {
-        });
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $section = $phpWord->addSection();
-        $section->addText('Hello world!');
+    // public function testLoadTemplate()
+    // {
+    //     $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
 
-        $this->assertTrue($phpWord->save('test.docx', 'Word2007', true));
+    //     $phpWord = new \PhpOffice\PhpWord\PhpWord();
+    //     $this->assertInstanceOf(
+    //         'PhpOffice\PhpWord\TemplateProcessor',
+    //         $phpWord->loadTemplate($templateFqfn)
+    //     );
+    // }
+    /**
+     * Test load template exception
+     *
+     *
+     * @expectedException \PhpOffice\PhpWord\Exception\Exception
+     */
+    public function testLoadTemplateException()
+    {
+        $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $phpWord->loadTemplate($templateFqfn);
     }
+
+
+    /** @test */
+    // public function testSave()
+    // {
+    //     $this->setOutputCallback(function () {
+    //     });
+    //     $phpWord = new \PhpOffice\PhpWord\PhpWord();
+    //     $section = $phpWord->addSection();
+    //     $section->addText('Hello world!');
+
+    //     $this->assertTrue($phpWord->save('test.docx', 'Word2007', true));
+    // }
 }

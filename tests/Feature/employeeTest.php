@@ -61,18 +61,6 @@ class employeeTest extends TestCase
         $this->assertCount(0,employe::all());
         $response->assertRedirect('/employee');
     }
-    /**
-    * @runTestsInSeparateProcesses
-    */
-    /** @test */
-    public function testLoadTemplateException()
-    {
-        $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $phpWord->loadTemplate($templateFqfn);
-    }
-
-
     /** @test */
     public function testSave()
     {

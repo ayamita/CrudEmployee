@@ -56,7 +56,7 @@ class employeeTest extends TestCase
     /** @test */
     public function testLoadTemplate()
     {
-        $templateFqfn = realpath(__DIR__ . '/../../public/word-template/CartaRecomendacion.docx');
+        $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $this->assertInstanceOf(

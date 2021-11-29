@@ -5,7 +5,7 @@ use App\Models\employe;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-
+use PhpOffice\PhpWord\Metadata\DocInfo;
 
 class employeeTest extends TestCase
 {
@@ -54,6 +54,29 @@ class employeeTest extends TestCase
         $response->assertRedirect('/employee');
     }
     /** @test */
+    public function testLoadTemplate()
+    {
+        $templateFqfn = realpath(__DIR__ . '/../../public/word-template/CartaRecomendacion.docx');
+
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $this->assertInstanceOf(
+            'PhpOffice\\PhpWord\\TemplateProcessor',
+            $phpWord->loadTemplate($templateFqfn)
+        );
+    }
+    /** @test */
+    public function testSave()
+    {
+        $this->setOutputCallback(function () {
+        });
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $section = $phpWord->addSection();
+        $section->addText('Hello world!');
+
+        $this->assertTrue($phpWord->save('test.docx', 'Word2007', true));
+    }
+
+    /** @test */
     public function an_employe_can_be_deleted ()
     {
         $user = employe::latest('id')->first();
@@ -61,5 +84,5 @@ class employeeTest extends TestCase
         $this->assertCount(0,employe::all());
         $response->assertRedirect('/employee');
     }
-
+    
 }

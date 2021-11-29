@@ -6,7 +6,9 @@
 <br>
 <br>
 
-@include('employee.create')
+<form>
+@include('employee/create')
+</form>
 <table class="table table-light table-hover">
     <thead class="table table-light table-hover">
         <tr>
@@ -27,6 +29,7 @@
         <td>{{$employe->email}}</td>
         <td>{{$employe->admission_date}}</td>
         <td>
+            @include('recomendaciones/create')
             <!-- Button trigger modal -->
             <button  type="button" class="btn-secondary" data-toggle="modal" data-target="#edit{{$employe->id}}">
                 Editar

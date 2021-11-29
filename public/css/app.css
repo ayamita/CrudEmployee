@@ -147,7 +147,7 @@ a {
 }
 
 .container {
-    max-width: 1024px !important;
+    max-width: 80% !important;
     margin-left: 1rem !important;
     margin-right: 1rem !important;
 }

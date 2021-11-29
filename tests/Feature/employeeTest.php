@@ -60,7 +60,7 @@ class employeeTest extends TestCase
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $this->assertInstanceOf(
-            'PhpOffice\\PhpWord\\TemplateProcessor',
+            'PhpOffice\PhpWord\TemplateProcessor',
             $phpWord->loadTemplate($templateFqfn)
         );
     }

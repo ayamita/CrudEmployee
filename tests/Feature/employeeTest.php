@@ -62,14 +62,23 @@ class employeeTest extends TestCase
         $response->assertRedirect('/employee');
     }
     /** @test */
-    public function testSave()
-    {
-        $this->setOutputCallback(function () {
-        });
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $section = $phpWord->addSection();
-        $section->addText('Hello world!');
+    // public function testLoadTemplateException()
+    // {
+    //     $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
+    //     $phpWord = new \PhpOffice\PhpWord\PhpWord();
+    //     $phpWord->loadTemplate($templateFqfn);
+    // }
 
-        $this->assertTrue($phpWord->save('test.docx', 'Word2007', true));
-    }
+
+    /** @test */
+    // public function testSave()
+    // {
+    //     $this->setOutputCallback(function () {
+    //     });
+    //     $phpWord = new \PhpOffice\PhpWord\PhpWord();
+    //     $section = $phpWord->addSection();
+    //     $section->addText('Hello world!');
+
+    //     $this->assertTrue($phpWord->save('test.docx', 'Word2007', true));
+    // }
 }

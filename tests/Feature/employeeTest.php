@@ -65,16 +65,14 @@ class employeeTest extends TestCase
     * @runTestsInSeparateProcesses
     */
     /** @test */
-    public function testLoadTemplate()
+    public function testLoadTemplateException()
     {
         $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
-
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $this->assertInstanceOf(
-            'PhpOffice\PhpWord\TemplateProcessor',
-            $phpWord->loadTemplate($templateFqfn)
-        );
+        $phpWord->loadTemplate($templateFqfn);
     }
+
+
     /** @test */
     public function testSave()
     {

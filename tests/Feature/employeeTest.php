@@ -54,6 +54,17 @@ class employeeTest extends TestCase
         $response->assertRedirect('/employee');
     }
     /** @test */
+    public function an_employe_can_be_deleted ()
+    {
+        $user = employe::latest('id')->first();
+        $response = $this->delete('/employee/'.$user['id']);
+        $this->assertCount(0,employe::all());
+        $response->assertRedirect('/employee');
+    }
+    /**
+    * @runTestsInSeparateProcesses
+    */
+    /** @test */
     public function testLoadTemplate()
     {
         $templateFqfn = realpath(__DIR__.'/../../public/word-template/CartaRecomendacion.docx');
@@ -75,14 +86,4 @@ class employeeTest extends TestCase
 
         $this->assertTrue($phpWord->save('test.docx', 'Word2007', true));
     }
-
-    /** @test */
-    public function an_employe_can_be_deleted ()
-    {
-        $user = employe::latest('id')->first();
-        $response = $this->delete('/employee/'.$user['id']);
-        $this->assertCount(0,employe::all());
-        $response->assertRedirect('/employee');
-    }
-    
 }

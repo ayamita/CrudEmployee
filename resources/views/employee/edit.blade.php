@@ -3,6 +3,6 @@
 @csrf
 @method('PATCH')
 @include('employee.form', [
-    'action' => 'edit'
+    'action' => 'Editar'
 ])
 </form>

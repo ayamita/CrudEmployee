@@ -11,7 +11,7 @@
   <input class="input__login height" type="date" value="{{isset($employe)? $employe->admission_date:''}}" placeholder="2018-08-25" name="admission_date" id="admission_date" required />
 </div>
 <div class="modal-footer">
-  <button type="submit" value="Agregar"  class="{{ $action == 'create' ? 'btn-primary' : 'btn-secondary' }}" >{{ $action == 'create' ? 'Save' : 'Edit' }}</button>
+  <button type="submit" value="Agregar"  class="{{ $action == 'create' ? 'btn-primary' : 'btn-secondary' }}" >{{ $action == 'create' ? 'Guardar' : 'Edit' }}</button>
   <a href="/employee"  class="btn-cancel"  >Cancelar</a>
 </div>
           

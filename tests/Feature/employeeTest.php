@@ -50,7 +50,8 @@ class employeeTest extends TestCase
         $employe = $employe->fresh();
         $this->assertEquals($employe->name, 'Enrique Bermudez');
         $this->assertEquals($employe->email, 'ElPerroBermudez@gmail.com');
-        $this->assertEquals($employe->admission_date, '2020-10-03');
+        $this->assertEquals($employe->admission_date, '03-10-2020');
+        //$this->assertEquals($employe->admission_date, '2020-10-03');
         $response->assertRedirect('/employee');
     }
     /** @test */
@@ -61,6 +62,7 @@ class employeeTest extends TestCase
         $this->assertCount(0,employe::all());
         $response->assertRedirect('/employee');
     }
+
     /** @test */
     // public function testLoadTemplateException()
     // {

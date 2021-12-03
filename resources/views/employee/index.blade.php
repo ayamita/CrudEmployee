@@ -13,7 +13,7 @@
     <thead class="table table-light table-hover">
         <tr>
             <th>#</th>
-            <th>Nombre</th>
+            <th>Nombre de Empleado</th>
             <th>Correo</th>
             <th>Fecha Admision</th>
             <th>Acciones</th>
